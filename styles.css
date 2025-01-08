@@ -44,6 +44,10 @@ button {
   font-size: 1.5rem;
   background-color: #e0e0e0;
   color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button.operator {
@@ -60,4 +64,20 @@ button.equal-sign {
 button.all-clear {
   background-color: #dc3545;
   color: white;
+}
+
+button:active {
+  background-color: #c1c1c1; /* Darken button when clicked */
+}
+
+button.operator:active {
+  background-color: #e67e22; /* Darker color for operator buttons when clicked */
+}
+
+button.equal-sign:active {
+  background-color: #218838; /* Darker color for equal sign button when clicked */
+}
+
+button.all-clear:active {
+  background-color: #c82333; /* Darker color for AC button when clicked */
 }
