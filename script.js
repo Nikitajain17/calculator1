@@ -23,7 +23,7 @@ keys.addEventListener('click', function(event) {
         case '=':
             calculate();
             break;
-        case 'all-clear':
+        case 'AC':  // Fixed value for AC button
             clear();
             break;
         case '.':
@@ -39,7 +39,7 @@ keys.addEventListener('click', function(event) {
 });
 
 function handleNumber(value) {
-    if (currentInput.length < 10) {
+    if (currentInput.length < 10) {  // Limit input length
         currentInput += value;
         updateScreen(currentInput);
     }
@@ -72,11 +72,16 @@ function calculate() {
             result = previous * current;
             break;
         case '/':
+            if (current === 0) {
+                result = 'Error';  // Handle division by zero
+                break;
+            }
             result = previous / current;
             break;
         default:
             return;
     }
+
     currentInput = result.toString();
     operator = null;
     previousInput = '';
@@ -93,4 +98,3 @@ function clear() {
 function updateScreen(value) {
     screen.value = value;
 }
-
